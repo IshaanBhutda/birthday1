@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshada ❤️</title>
+  <style>
+    /* style.css */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #fce4ec, #f8bbd0);
+      color: #4b2e2e;
+      overflow-x: hidden;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur819.cur'), auto;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-weight: bold;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .countdown {
+      font-size: 3rem;
+      color: #c2185b;
+      background: white;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(194, 24, 91, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .fireworks-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(45deg, #1a0033, #330066, #660099);
+    }
+
+    #fireworks-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .fireworks-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      font-size: 4rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px #f06292, 0 0 20px #ec407a, 0 0 30px #ad1457;
+      z-index: 2;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        text-shadow: 0 0 10px #f06292, 0 0 20px #ec407a, 0 0 30px #ad1457;
+      }
+      50% { 
+        transform: translate(-50%, -50%) scale(1.1);
+        text-shadow: 0 0 20px #ff4081, 0 0 40px #f06292, 0 0 60px #ec407a;
+      }
+    }
+
+    pre {
+      background: #111;
+      color: #90ee90;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 80%;
+      max-width: 800px;
+      text-align: left;
+      font-size: 1.1rem;
+      white-space: pre-wrap;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      border: 2px solid #90ee90;
+    }
+
+    .question {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      color: #880e4f;
+      font-weight: bold;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .option {
+      background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      cursor: grab;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .option:hover {
+      background: linear-gradient(135deg, #f48fb1, #e91e63);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .option:active {
+      cursor: grabbing;
+    }
+
+    .dropzone {
+      border: 3px dashed #ad1457;
+      height: 80px;
+      width: 250px;
+      margin: 0 auto 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      font-weight: bold;
+      color: #ad1457;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    .dropzone:hover {
+      background: rgba(248, 187, 208, 0.3);
+      border-color: #c2185b;
+    }
+
+    #game-result {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2e7d32;
+      animation: celebration 2s ease-in-out;
+    }
+
+    @keyframes celebration {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+  /* Roadmap Styles - Each point as a separate page */
+    .roadmap-page {
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, #fff0f5, #fce4ec, #f8bbd0);
+      scroll-snap-align: start;
+    }
+
+    .roadmap-container {
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+      height: 100vh;
+    }
+
+    .roadmap-page:nth-child(1) { background: linear-gradient(135deg, #fff0f5, #fce4ec); }
+    .roadmap-page:nth-child(2) { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+    .roadmap-page:nth-child(3) { background: linear-gradient(135deg, #f8bbd0, #e1bee7); }
+    .roadmap-page:nth-child(4) { background: linear-gradient(135deg, #e1bee7, #c8e6c9); }
+    .roadmap-page:nth-child(5) { background: linear-gradient(135deg, #c8e6c9, #ffe0b2); }
+    .roadmap-page:nth-child(6) { background: linear-gradient(135deg, #ffe0b2, #d1c4e9); }
+    .roadmap-page:nth-child(7) { background: linear-gradient(135deg, #d1c4e9, #bbdefb); }
+    .roadmap-page:nth-child(8) { background: linear-gradient(135deg, #bbdefb, #ffcdd2); }
+    .roadmap-page:nth-child(9) { background: linear-gradient(135deg, #ffcdd2, #f0f4c3); }
+    .roadmap-page:nth-child(10) { background: linear-gradient(135deg, #f0f4c3, #fff0f5); }
+
+    .roadmap-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .roadmap-page:nth-child(1) .roadmap-icon { background: linear-gradient(135deg, #e91e63, #ad1457); }
+    .roadmap-page:nth-child(2) .roadmap-icon { background: linear-gradient(135deg, #ff4081, #e91e63); }
+    .roadmap-page:nth-child(3) .roadmap-icon { background: linear-gradient(135deg, #26c6da, #00acc1); }
+    .roadmap-page:nth-child(4) .roadmap-icon { background: linear-gradient(135deg, #66bb6a, #43a047); }
+    .roadmap-page:nth-child(5) .roadmap-icon { background: linear-gradient(135deg, #ffa726, #ff9800); }
+    .roadmap-page:nth-child(6) .roadmap-icon { background: linear-gradient(135deg, #ab47bc, #8e24aa); }
+    .roadmap-page:nth-child(7) .roadmap-icon { background: linear-gradient(135deg, #5c6bc0, #3f51b5); }
+    .roadmap-page:nth-child(8) .roadmap-icon { background: linear-gradient(135deg, #ef5350, #e53935); }
+    .roadmap-page:nth-child(9) .roadmap-icon { background: linear-gradient(135deg, #42a5f5, #1e88e5); }
+    .roadmap-page:nth-child(10) .roadmap-icon { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+
+    .roadmap-content {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem 3rem;
+      border-radius: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      max-width: 600px;
+      position: relative;
+      transform: translateY(20px);
+      animation: slideUp 1s ease-out forwards;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .roadmap-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #880e4f;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .roadmap-description {
+      font-size: 1.3rem;
+      color: #4b2e2e;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .roadmap-number {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #e91e63, #ad1457);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #880e4f;
+      font-size: 1rem;
+      animation: fadeInOut 2s ease-in-out infinite;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .final-message {
+      margin-top: 2rem;
+      font-size: 1.8rem;
+      color: #c2185b;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .fade-out {
+      opacity: 0;
+      transition: opacity 1s ease-out;
+    }
+
+    .option.selected {
+      background: linear-gradient(135deg, #e91e63, #ad1457) !important;
+      color: white;
+      transform: scale(1.05);
+    }
+    /* Floating hearts animation */
+    .heart {
+      position: fixed;
+      color: #e91e63;
+      font-size: 1.5rem;
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Landing Countdown Section -->
+  <section id="countdown-section" class="section">
+    <h1>Celebrating the most special girl in my life</h1>
+    <div id="countdown" class="countdown"></div>
+  </section>
+
+  <!-- Fireworks Section -->
+<section id="fireworks" class="hidden fireworks-container">
+  <video
+    id="fireworks-video"
+    src="fireworks.mp4"  
+    muted
+    autoplay
+    playsinline
+    loop
+    class="fireworks-video"
+  ></video>
+</section>
+
+    <h1
+      id="fireworks-text"
+      class="fireworks-text"
+      style="opacity: 0; visibility: hidden; transition: opacity 0.8s ease-in;"
+    >
+      Happy Birthday Akshada! 
+    </h1>
+  </section>
+
+  <!-- Terminal Section -->
+  <section id="terminal" class="section hidden">
+    <pre id="terminal-output"></pre>
+  </section>
+
+  <!-- Game Section -->
+  <section id="game" class="section hidden">
+    <h2>Quick Game</h2>
+    <div class="question">Are you the most beautiful girl in this world?</div>
+    <div class="options">
+      <div class="option" draggable="true">Yes</div>
+      <div class="option" draggable="true">No</div>
+    </div>
+    <div class="dropzone" id="drop1">Drop Here</div>
+
+    <div class="question">Are you the sweetest most caring person I know?</div>
+    <div class="options">
+      <div class="option" draggable="true">Yes</div>
+      <div class="option" draggable="true">No</div>
+    </div>
+    <div class="dropzone" id="drop2">Drop Here</div>
+
+    <div id="game-result" class="hidden">Perfect! You know yourself well! 😉</div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section id="roadmap" class="section hidden">
+    <h2>A small message</h2>
+    <div class="roadmap-container">
+      <div class="road-path"></div>
+      <ul class="roadmap">
+        <li>
+          
+          <div class="roadmap-content">
+            <div class="roadmap-title">Our journey together</div>
+            <div class="roadmap-description">I can't believe it's already been more than 2 months since we started dating. I'll never forget the first time we talked during Vibrance or almost every night of that month on Instagram. Followed by the awkwardness whenever we met in person 😂. During that time I was in my gym phase #selfimprovement and, honestly, never thought I would like anyone. Then you entered my life. I checked my chats with my best friend and realized that on 26/2/2025 we first talked and I started liking you on 2/3/2025. Literally one week after talking to you 🙈. Every day I would eagerly wait for your message filled with excitement and anticipation like Simba waiting for you to return back home. All the butterflies and anxiety from our initial flirty texts or 'risky' reels still make me smile. I distinctly remember just sitting and staring at my phone trying to decide "Should I send this to her?". Moving on, let me tell you about the scariest day of my life- asking you out. That day there was nothing else on my mind except for what I was going to say to you that night. Prepared a whole speech and everything. I rehearsed it in my head a million times. But the second I saw you that night my mind went blank. My heart was pounding with anxiety and fear. Time felt so slow- it was as if I was about to jump off of a rocket into the Bermuda Triangle. I keep looking back to that moment and every time my heart rate increases. But by far you have been the best decision I have ever made. </div>
+          </div>
+        </li>
+        <li>
+          <div class="roadmap-icon"></div>
+          <div class="roadmap-content">
+    
+            <div class="roadmap-description">Before I met you, I knew whoever I would like I would absolutely be head-over-heels for. But I never thought I would fall so hard. Can you blame me? You have the most hypnotic angelic eyes, every time I look at them I get lost in the abyss losing all track of whatever is happening around me. You are drop-dead gorgeous. A one in a trillion specimen of absolute beauty. You have the prettiest most mesmerizing smile filled with warmth and comfort. I love everything about you. From your captivating lips, your soft cloud-like hands, your curly hair, your sweet yet excitement-filled voice, to your 'round Bengali-like face'. EVERYTHING. You are nothing less than the 8th wonder of this word. Sometimes I think to myself, I got HERR?? Impossible. Your looks aren't the only thing that makes you perfect. You are the single-handed most intelligent girl I have had the pleasure of interacting with. Your brilliance intrigues me and I love getting your take on different situations. Every time you enter a room I can feel your magnetic halo-like presence. Whenever I see or hear you whether I show it or not, I'm always internally smiling. You have this special ability to turn every ordinary moment into something fun, and I am very grateful for the light you bring into my life.  You are an extremely hardworking and ambitious person and not only push yourself but push people around you to become better versions of themselves. Ever since we got together I have constantly been wanting to push myself and improve in multiple aspects of my life including, but not limited to, academics, projects, gym, or just becoming a better person overall, for which I am really grateful to you for ❤️. </div>
+          </div>
+        </li>
+        <li>
+          <div class="roadmap-icon"></div>
+          <div class="roadmap-content">
+            <div class="roadmap-description">This journey so far has been great. I am excited to continue to learn and grow with you and hopefully will have a positive impact in some way on you. You can accomplish anything that you put your mind to and want you to never doubt your capability. Whether we will be together or not, I want you to know that I'll always root for you and wish nothing but to see you thrive in all your endeavors, and always be happy at each stage of your life, because you have forever implanted a special place in my heart. I will always be here for you to celebrate all your achievements and be the tree you can lean on during any of your tough phases. I would want you to be completely open with me because there is nothing you can say that will change how much I like you. As you depart from your teen years, I wish you always remain healthy, stay curious and adventurous, create never-ending relationships, always keep smiling, achieve all your dreams for yourself and your family, and let the world know who you are because I truly believe you will have a positive influence on this world. </div>
+          </div>
+        </li>
+        <li>
+          <div class="roadmap-icon"></div>
+          <div class="roadmap-content">
+   
+            <div class="roadmap-description">I have huge respect for you and feel very grateful for our paths crossing and for the pleasure of getting to know you. You will always be my lucky charm and I love you more than any word in the dictionary or any number that exists to describe it. </div>
+          </div>
+        </li>
+    <div style="margin-top: 3rem; font-size: 1.5rem; color: #c2185b; font-weight: bold;">
+      On that note, I wish you a very Happy Birthday!
+    </div>
+  </section>
+
+  <script>
+    // Create floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 6 + 's';
+      heart.style.animationDuration = (Math.random() * 3 + 6) + 's';
+      document.body.appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+    }
+
+    // Create hearts periodically
+    setInterval(createHeart, 3000);
+
+    // Your existing JavaScript
+    const countdown = document.getElementById('countdown');
+    const countdownSection = document.getElementById('countdown-section');
+    const fireworksSection = document.getElementById('fireworks');
+    const fireworksVideo = document.getElementById('fireworks-video');
+    const terminalSection = document.getElementById('terminal');
+    const terminalOutput = document.getElementById('terminal-output');
+    const gameSection = document.getElementById('game');
+    const roadmapSection = document.getElementById('roadmap');
+    const fireworksText = document.getElementById('fireworks-text');
+
+    const targetDate = new Date("June 13, 2025 00:00:00").getTime();
+    let postTimeReached = false;
+    let fastForward = 5;
+    let fireworksPlayed = false;
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        if (!postTimeReached) {
+          postTimeReached = true;
+          fastForward = 5;
+        }
+
+        if (fastForward > 0) {
+          countdown.innerText = `0d 0h 0m ${fastForward}s`;
+          fastForward--;
+        } else if (!fireworksPlayed) {
+          countdownSection.classList.add('hidden');
+          fireworksPlayed = true;
+          showFireworks();
+        }
+
+        return;
+      }
+
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const h = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((difference / 1000 / 60) % 60);
+      const s = Math.floor((difference / 1000) % 60);
+      countdown.innerText = `${d}d ${h}h ${m}m ${s}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function showFireworks() {
+      fireworksSection.classList.remove("hidden");
+
+      setTimeout(() => {
+        fireworksText.style.visibility = "visible";
+        fireworksText.style.opacity = 1;
+      }, 300);
+
+      setTimeout(() => {
+        fireworksText.style.opacity = 0;
+        fireworksText.style.visibility = "hidden";
+        fireworksSection.classList.add("fade-out");
+
+        setTimeout(() => {
+          fireworksVideo.pause();
+          fireworksSection.classList.add("hidden");
+          terminalSection.classList.remove("hidden");
+          terminalSection.scrollIntoView({ behavior: "smooth" });
+          runTerminal();
+        }, 1000);
+      }, 4000);
+    }
+
+    // Terminal Typing Animation
+    const terminalCode = [
+      "# To mi reina 👑",
+      "def describe_akshada():",
+      "    qualities = [",
+      "        'most_beautiful_smile_ever',",
+      "        'kindest_heart_in_the_world',",
+      "        'brilliant_mind_that_amazes_me',",
+      "        'laugh_that_lights_up_my_day'",
+      "    ]",
+      "    return f'The most wonderful person: {qualities}'",
+      "",
+      "describe_akshada()"
+    ];
+
+    let currentLine = 0;
+    let currentChar = 0;
+    let terminalFinished = false;
+
+    function runTerminal() {
+      if (terminalFinished) return;
+
+      if (currentLine >= terminalCode.length) {
+        terminalFinished = true;
+        setTimeout(() => {
+          terminalOutput.innerHTML += "\n\nOutput: Akshada - My Everything ";
+          setTimeout(() => {
+            terminalSection.classList.add('hidden');
+            gameSection.classList.remove('hidden');
+          }, 2000);
+        }, 1000);
+        return;
+      }
+
+      const line = terminalCode[currentLine];
+      if (currentChar < line.length) {
+        terminalOutput.innerHTML += line.charAt(currentChar);
+        currentChar++;
+        setTimeout(runTerminal, 40 + Math.random() * 40);
+      } else {
+        terminalOutput.innerHTML += "\n";
+        currentLine++;
+        currentChar = 0;
+        setTimeout(runTerminal, 300);
+      }
+    }
+
+    // Drag-and-Drop Game with better event handling
+    const drop1 = document.getElementById("drop1");
+    const drop2 = document.getElementById("drop2");
+    const result = document.getElementById("game-result");
+    let correctAnswers = 0;
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      ev.currentTarget.style.background = 'rgba(248, 187, 208, 0.5)';
+      ev.currentTarget.style.transform = 'scale(1.05)';
+      ev.currentTarget.style.borderColor = '#e91e63';
+    }
+    
+    function dragLeave(ev) {
+      ev.preventDefault();
+      ev.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)';
+      ev.currentTarget.style.transform = 'scale(1)';
+      ev.currentTarget.style.borderColor = '#ad1457';
+    }
+
+    function dropAnswer(ev, zone, correct) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      
+      const data = ev.dataTransfer.getData("text/plain") || ev.dataTransfer.getData("text");
+      console.log("Dropped data:", data); // Debug log
+      
+      if (!data) {
+        console.log("No data received"); // Debug log
+        return;
+      }
+      
+      zone.innerText = data;
+      zone.style.transform = 'scale(1)';
+      
+      if (data === correct) {
+        zone.style.background = 'rgba(76, 175, 80, 0.3)';
+        zone.style.borderColor = '#4caf50';
+        zone.style.color = '#2e7d32';
+        correctAnswers++;
+        console.log("Correct answers:", correctAnswers); // Debug log
+        
+        if (correctAnswers === 2) {
+          result.classList.remove("hidden");
+          setTimeout(() => {
+            gameSection.classList.add('hidden');
+            roadmapSection.classList.remove('hidden');
+            roadmapSection.scrollIntoView({ behavior: "smooth" });
+          }, 3000);
+        }
+      } else {
+        zone.style.background = 'rgba(244, 67, 54, 0.3)';
+        zone.style.borderColor = '#f44336';
+        zone.style.color = '#c62828';
+        
+        setTimeout(() => {
+          zone.innerText = "Try again <3";
+          zone.style.background = 'rgba(255, 255, 255, 0.8)';
+          zone.style.borderColor = '#ad1457';
+          zone.style.color = '#ad1457';
+        }, 1500);
+      }
+    }
+
+    // Set up drop zones with multiple event listeners for better compatibility
+    [drop1, drop2].forEach((dropZone, index) => {
+      // Primary drag events
+      dropZone.addEventListener("dragover", allowDrop);
+      dropZone.addEventListener("dragenter", allowDrop);
+      dropZone.addEventListener("dragleave", dragLeave);
+      
+      // Drop event
+      dropZone.addEventListener("drop", (e) => {
+        console.log("Drop event triggered on zone", index + 1); // Debug log
+        dropAnswer(e, dropZone, "Yes");
+      });
+      
+      // Click alternative for mobile/touch devices
+      dropZone.addEventListener("click", function() {
+        if (window.selectedOption) {
+          const data = window.selectedOption;
+          dropZone.innerText = data;
+          
+          if (data === "Yes") {
+            dropZone.style.background = 'rgba(76, 175, 80, 0.3)';
+            dropZone.style.borderColor = '#4caf50';
+            dropZone.style.color = '#2e7d32';
+            correctAnswers++;
+            
+            if (correctAnswers === 2) {
+              result.classList.remove("hidden");
+              setTimeout(() => {
+                gameSection.classList.add('hidden');
+                roadmapSection.classList.remove('hidden');
+                roadmapSection.scrollIntoView({ behavior: "smooth" });
+              }, 3000);
+            }
+          } else {
+            dropZone.style.background = 'rgba(244, 67, 54, 0.3)';
+            dropZone.style.borderColor = '#f44336';
+            dropZone.style.color = '#c62828';
+            
+            setTimeout(() => {
+              dropZone.innerText = "Try again <3";
+              dropZone.style.background = 'rgba(255, 255, 255, 0.8)';
+              dropZone.style.borderColor = '#ad1457';
+              dropZone.style.color = '#ad1457';
+            }, 1500);
+          }
+          
+          window.selectedOption = null;
+          document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+        }
+      });
+    });
+
+    // Make options draggable and handle drag events
+    document.querySelectorAll(".option").forEach((opt) => {
+      // Drag events
+      opt.addEventListener("dragstart", (e) => {
+        console.log("Drag started with:", opt.innerText); // Debug log
+        e.dataTransfer.setData("text/plain", opt.innerText);
+        e.dataTransfer.setData("text", opt.innerText); // Fallback
+        opt.style.opacity = "0.5";
+      });
+      
+      opt.addEventListener("dragend", (e) => {
+        opt.style.opacity = "1";
+      });
+      
+      // Click alternative for touch devices
+      opt.addEventListener("click", function() {
+        // Remove previous selection
+        document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        
+        // Mark this option as selected
+        opt.classList.add('selected');
+        opt.style.background = 'linear-gradient(135deg, #e91e63, #ad1457)';
+        window.selectedOption = opt.innerText;
+        
+        // Reset other options
+        document.querySelectorAll('.option').forEach(o => {
+          if (o !== opt) {
+            o.style.background = 'linear-gradient(135deg, #f8bbd0, #f48fb1)';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
