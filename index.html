@@ -3,6 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protected</title>
+
+  <style>
+    /* Full-screen black lock screen */
+    html,body{
+      height:100%;margin:0;padding:0;font-family:sans-serif;
+      html, body{
+  /* nothing dark here any more */
+  background: linear-gradient(135deg,#fff0f5 0%, #fce4ec 50%, #f8bbd0 100%);
+  background-attachment: fixed;   /* gradient stays put while you scroll  */
+}
+    }
+    #lockscreen{
+      position:fixed;inset:0;background:#000;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;
+      z-index:1000;
+      color:#fff;
+      background:#000;
+      display:flex;
+    }
+
+    #lockscreen > div:first-child {
+      font-size:24px;
+      font-weight:bold;
+      margin-bottom:20px;
+      color:#e90000;
+    }
+    #lockscreen input{
+      margin-top:12px;padding:10px 14px;font-size:16px;border-radius:6px;border:none;text-align:center;
+    }
+    .hidden{display:none;}
+  </style>
+</head>
+<body>
+
+<!-- 🔐 Password overlay -->
+<div id="lockscreen">
+  <div>Enter Password</div>
+  <input type="password" id="password" placeholder="Type here" />
+</div>
+
+<!-- 🎉 Your real website (initially hidden) -->
+<div id="main-content" class="hidden">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akshada_Birthday</title>
   <style>
     /* style.css */
@@ -307,7 +355,7 @@
     }
 
     .final-message {
-      margin-top: 2rem;
+      margin-top: 5rem;
       font-size: 1.8rem;
       color: #c2185b;
       font-weight: bold;
@@ -417,7 +465,7 @@
           <div class="roadmap-icon"></div>
           <div class="roadmap-content">
     
-            <div class="roadmap-description">Before I met you, I knew whoever I would like I would absolutely be head-over-heels for. But I never thought I would fall so hard. Can you blame me? You have the most hypnotic angelic eyes, every time I look at them I get lost in the abyss losing all track of whatever is happening around me. You are drop-dead gorgeous. A one in a trillion specimen of absolute beauty. You have the prettiest most mesmerizing smile filled with warmth and comfort. I love everything about you. From your captivating lips, your soft cloud-like hands, your curly hair, your sweet yet excitement-filled voice, to your 'round Bengali-like face'. EVERYTHING. You are nothing less than the 8th wonder of this word. Sometimes I think to myself, I got HERR?? Impossible. Your looks aren't the only thing that makes you perfect. You are the single-handed most intelligent girl I have had the pleasure of interacting with. Your brilliance intrigues me and I love getting your take on different situations. Every time you enter a room I can feel your magnetic halo-like presence. Whenever I see or hear you whether I show it or not, I'm always internally smiling. You have this special ability to turn every ordinary moment into something fun, and I am very grateful for the light you bring into my life.  You are an extremely hardworking and ambitious person and not only push yourself but push people around you to become better versions of themselves. Ever since we got together I have constantly been wanting to push myself and improve in multiple aspects of my life including, but not limited to, academics, projects, gym, or just becoming a better person overall, for which I am really grateful to you for ❤️. </div>
+            <div class="roadmap-description">Before I met you, I knew whoever I would like I would absolutely be head-over-heels for. But I never thought I would fall so hard. Can you blame me? You have the most hypnotic angelic eyes, every time I look at them I get lost in the abyss losing all track of whatever is happening around me. You are drop-dead gorgeous. A one in a trillion specimen of absolute beauty. You have the prettiest most mesmerizing smile filled with warmth and comfort. I love everything about you. From your captivating lips, your soft cloud-like hands, your curly hair, your sweet yet excitement-filled voice, to your 'round Bengali-like face'. EVERYTHING. You are nothing less than the 8th wonder of this world. Sometimes I think to myself, I got HERR?? Impossible. Your looks aren't the only thing that makes you perfect. You are the single-handed most intelligent girl I have had the pleasure of interacting with. Your brilliance intrigues me and I love getting your take on different situations. Every time you enter a room I can feel your magnetic halo-like presence. Whenever I see or hear you whether I show it or not, I'm always internally smiling. You have this special ability to turn every ordinary moment into something fun, and I am very grateful for the light you bring into my life.  You are an extremely hardworking and ambitious person and not only push yourself but push people around you to become better versions of themselves. Ever since we got together I have constantly been wanting to push myself and improve in multiple aspects of my life including, but not limited to, academics, projects, gym, or just becoming a better person overall, for which I am really grateful to you for ❤️. </div>
           </div>
         </li>
         <li>
@@ -470,7 +518,7 @@
 
     const targetDate = new Date("June 14, 2025 00:00:00").getTime();
     let postTimeReached = false;
-    let fastForward = 5;
+    let fastForward = 10;
     let fireworksPlayed = false;
 
     function updateCountdown() {
@@ -480,7 +528,7 @@
       if (difference <= 0) {
         if (!postTimeReached) {
           postTimeReached = true;
-          fastForward = 5;
+          fastForward = 8;
         }
 
         if (fastForward > 0) {
@@ -725,5 +773,25 @@
       });
     });
   </script>
+</body>
+</html>
+</div>
+
+<script>
+  const CORRECT_PASSWORD = "Simba";   // ← change this!
+
+  document.getElementById("password").addEventListener("keydown", e=>{
+    if(e.key==="Enter"){
+      if(e.target.value===CORRECT_PASSWORD){
+        document.getElementById("lockscreen").remove();          // remove overlay
+        document.getElementById("main-content").classList.remove("hidden"); // show site
+      }else{
+        e.target.value="";
+        alert("Wrong password!");
+      }
+    }
+  });
+</script>
+
 </body>
 </html>
