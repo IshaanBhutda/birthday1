@@ -778,13 +778,13 @@
 </div>
 
 <script>
-  const CORRECT_PASSWORD = "Simba";   // ← change this!
+  const CORRECT_PASSWORD = "Simba";  
 
   document.getElementById("password").addEventListener("keydown", e=>{
     if(e.key==="Enter"){
       if(e.target.value===CORRECT_PASSWORD){
-        document.getElementById("lockscreen").remove();          // remove overlay
-        document.getElementById("main-content").classList.remove("hidden"); // show site
+        document.getElementById("lockscreen").remove();         
+        document.getElementById("main-content").classList.remove("hidden"); 
       }else{
         e.target.value="";
         alert("Wrong password!");
